@@ -22,6 +22,36 @@ namespace Rock___Paper___Scissors
                 Console.WriteLine("Invalid input. Try again....");
                 return;
             }
+            Random random = new Random();
+            int computerRandomNumber = random.Next(1, 4);
+            string computerMove = string.Empty;
+            switch (computerRandomNumber)
+            {
+                case 1:
+                    computerMove = "Rock";
+                    break;
+                case 2:
+                    computerMove = "Paper";
+                    break;
+                case 3:
+                    computerMove = "Scissors";
+                    break;
+            }
+            Console.WriteLine($"The computer chose {computerMove}.");
+            if ((playerMove=="Rock" && computerMove=="Scissors") ||
+                (playerMove=="Paper" && computerMove=="Rock") ||
+                (playerMove=="Scissors" && computerMove=="Paper"))
+            {
+                Console.WriteLine("You won.");
+            }
+            else if ((playerMove == "Scissors" && computerMove == "Rock") ||
+                (playerMove == "Rock" && computerMove == "Paper") ||
+                (playerMove == "Paper" && computerMove == "Scissors"))
+            {
+                Console.WriteLine("You lost.");
+            }
+            else
+                Console.WriteLine("This game is a draw.");
         }
     }
 }
